@@ -44,11 +44,3 @@ Balances sum per source, after capping, rather than subtracting combined attempt
 ## History semantics
 
 SQLite stores **absolute snapshots**, not request events. Repeated polling replaces the same day's sample rather than adding counts; older observations cannot overwrite newer ones. Retention is `history_days` × 24 hours by observation timestamp; pruning happens after successful writes. Read filtering applies even without new writes. It cannot recover pre-installation history or guarantee end-of-day totals during downtime; a source counter reset may replace that day's prior snapshot. Runtime data is ignored by Git and excluded from release bundles.
-
-## Naoya adapter
-
-`type: "naoya"` logs in with the configured environment variable references, then reads `/api/dashboard/realtime`. Login is only for a console session; no Google/account login or generation occurs. Cookies stay in process memory for that fetch. A successful login’s 302/303 response to `/` is accepted without following it; all other redirects are refused. No upstream body/error is published.
-
-The adapter targets the realtime-summary dialect with `generated_at`, `status.browser_connected/service_connected`, and `scheduler.usage_window/models/quota_by_model/token_quota_by_model`. Both runtime status flags must be true. Request quota occupancy uses `total_quota - estimated_remaining_quota`; requests use the model's `daily_requests`. It does not infer outcomes.
-
-Token quotas require `token_metric: total_tokens`, matching windows and scope `build/model` or `build/account`. Account-shared pools appear once as `pool:<pool>`; repeated identical pool projections deduplicate, conflicting projections reject the sample. Unknown usage/limits remain unknown; supplied estimated balances are preserved. Other scopes/metrics are omitted. This is **not a promise of compatibility with every Naoya version**; verify an aggregate-only fixture from your version. Remote HTTP is refused: use HTTPS or a loopback tunnel.
