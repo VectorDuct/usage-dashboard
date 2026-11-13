@@ -1,0 +1,5 @@
+{
+  "generated_at": "2026-01-01T12:00:00Z",
+  "window": {"date": "2026-01-01", "timezone": "UTC"},
+  "models": [{"id": "your-model", "label": "Your model", "unit": "requests", "used": 120, "limit": 1000, "requests": 125, "successes": 120, "failures": 5, "estimated": true}]
+}

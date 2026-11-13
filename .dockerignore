@@ -1,0 +1,8 @@
+**
+!usage_dashboard/
+!usage_dashboard/**
+!examples/
+!examples/config.demo.json
+!LICENSE
+usage_dashboard/**/__pycache__/
+usage_dashboard/**/*.pyc

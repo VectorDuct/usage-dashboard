@@ -1,0 +1,6 @@
+{
+  "site": {"title": "Team Usage", "description": "Our shared model usage.", "language": "en"},
+  "timezone": "UTC",
+  "data_dir": "../data",
+  "sources": [{"id": "team", "label": "Team workspace", "type": "http", "url": "https://metrics.example.com/usage.json", "bearer_env": "USAGE_SOURCE_TOKEN"}]
+}

@@ -1,0 +1,8 @@
+{
+  "site": {"title": "模型用量看板", "description": "查看模型用量、额度和数据新鲜度。", "language": "zh-CN"},
+  "timezone": "Asia/Shanghai",
+  "poll_interval": 30,
+  "stale_after": 120,
+  "data_dir": "../data",
+  "sources": [{"id": "demo", "label": "演示工作区", "type": "demo"}]
+}

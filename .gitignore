@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+config.json
+config.*.json
+!examples/config.*.json
+data/
+*.sqlite*
+*.db*
+*.pem
+*.key
+*.credentials*
+dist/
+build/
+*.egg-info/
+node_modules/
+playwright-report/
+test-results/
+
+# Private deployment overrides
+compose.local.yaml
+compose.override.yaml

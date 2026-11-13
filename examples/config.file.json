@@ -1,0 +1,4 @@
+{
+  "data_dir": "../data",
+  "sources": [{"id": "local", "label": "Local exporter", "type": "file", "path": "snapshot.json"}]
+}

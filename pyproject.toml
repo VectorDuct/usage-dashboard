@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "portable-usage-dashboard"
+version = "0.1.0"
+description = "A read-only model usage dashboard with configurable aggregate sources"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = []
+
+[project.optional-dependencies]
+windows = ["tzdata"]
+
+[project.scripts]
+usage-dashboard = "usage_dashboard.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["usage_dashboard*"]
+
+[tool.setuptools.package-data]
+usage_dashboard = ["static/*.html", "static/*.css", "static/*.js"]

@@ -1,0 +1,4 @@
+{
+  "data_dir": "../data",
+  "sources": [{"id": "pool", "label": "Model pool", "type": "naoya", "url": "http://127.0.0.1:7861", "username_env": "NAOYA_USERNAME", "password_env": "NAOYA_PASSWORD"}]
+}
