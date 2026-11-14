@@ -2,11 +2,13 @@
 
 **[简体中文](./README.zh-CN.md)** · **[Source Contract](./docs/data-contract.md)**
 
+> **VectorDuct Primitive: Sovereign Telemetry** ([vectorduct.com](https://vectorduct.com/#stack))
+
 A lightweight, read-only observability dashboard for tracking model API usage, quota balances, and daily historical snapshots. Aggregate metrics from your own services while keeping credentials and upstream account records strictly on the server.
 
 ## What It Does
 
-- **Multiple Configurable Sources**: Supports synthetic demo feeds, local JSON files, authenticated HTTPS JSON endpoints, and real-time summary adapters.
+- **Multiple Configurable Sources**: Aggregates metrics across multi-model endpoints (OpenAI-compatible, DeepSeek, Anthropic, Google Cloud Vertex AI) through local JSON files, authenticated HTTPS JSON endpoints, and real-time summary adapters; also supports synthetic demo feeds.
 - **Quota & Health Tracking**: Displays request and token quotas, remaining balances, source freshness, and completion success rates.
 - **Deterministic Aggregation**: Aggregates model metrics strictly across matching units and daily time windows. Failed or unreachable sources are surfaced explicitly rather than masked as healthy.
 - **SQLite Daily Snapshots**: Automatically records daily historical snapshots in a local SQLite database with configurable retention (`1–365` days) and zero upstream database dependencies.

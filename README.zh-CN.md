@@ -2,11 +2,13 @@
 
 **[English](./README.md)** · **[数据源协议 (Source Contract)](./docs/data-contract.md)**
 
+> **VectorDuct 核心原语：Sovereign Telemetry（主权遥测账本）** ([vectorduct.com](https://vectorduct.com/#stack))
+
 轻量级、只读的模型用量与配额可观测性看板。支持从自有服务端聚合模型调用与额度指标，在本地持久化每日快照，同时确保上游凭据与账户记录严格保留在服务端边界内。
 
 ## 核心功能
 
-- **多类型数据源接入**：支持内置合成演示数据、本地 JSON 文件、带 Bearer 鉴权的 HTTPS JSON 端点以及实时汇总适配器。
+- **多类型数据源接入**：通过本地 JSON 文件、带 Bearer 鉴权的 HTTPS JSON 端点及实时汇总适配器，聚合多模型端点（OpenAI 兼容接口、DeepSeek、Anthropic、Google Cloud Vertex AI）的指标；同时支持内置合成演示数据。
 - **配额与健康度监控**：展示请求次数（Requests）与 Token 额度、剩余可用量、数据源新鲜度（Freshness）及调用成功率。
 - **确定性聚合计算**：严格按相同计量单位与每日时间窗口聚合模型指标；未知余额保持未知状态，采集失败的数据源会明确标记异常，绝不伪装为健康状态。
 - **SQLite 每日历史快照**：自动在本地 SQLite 数据库中保存每日历史用量快照，支持配置保留天数（`1–365` 天），无需访问上游业务数据库。
