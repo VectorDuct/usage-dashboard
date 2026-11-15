@@ -1,0 +1,38 @@
+{
+  "site": {
+    "title": "Multi-Provider Usage",
+    "description": "Illustrative read-only aggregate exporters for OpenAI-compatible, Anthropic, and Vertex AI usage. Replace example URLs with your own summary endpoints.",
+    "language": "en"
+  },
+  "host": "127.0.0.1",
+  "port": 8900,
+  "timezone": "UTC",
+  "poll_interval": 30,
+  "stale_after": 120,
+  "timeout": 5,
+  "history_days": 90,
+  "data_dir": "../data",
+  "sources": [
+    {
+      "id": "openai-prod",
+      "label": "OpenAI-compatible aggregate summary",
+      "type": "http",
+      "url": "https://metrics.example.com/openai/summary.json",
+      "bearer_env": "OPENAI_METRICS_TOKEN"
+    },
+    {
+      "id": "anthropic",
+      "label": "Anthropic aggregate summary",
+      "type": "http",
+      "url": "https://metrics.example.com/anthropic/summary.json",
+      "bearer_env": "ANTHROPIC_METRICS_TOKEN"
+    },
+    {
+      "id": "vertex-iam",
+      "label": "Google Cloud Vertex AI aggregate summary",
+      "type": "http",
+      "url": "https://metrics.example.com/vertex/summary.json",
+      "bearer_env": "VERTEX_METRICS_TOKEN"
+    }
+  ]
+}

@@ -64,6 +64,14 @@ python3 -m usage_dashboard --config config.json --check
 python3 -m usage_dashboard --config config.json
 ```
 
+三个独立提供商用量池的配置可参考[多提供商示例](./examples/config.multi-provider.example.json)：
+
+```bash
+python3 -m usage_dashboard --config examples/config.multi-provider.example.json --check
+```
+
+其中的 HTTPS URL 是 OpenAI 兼容接口、Anthropic 与 Google Cloud Vertex AI 用量汇总导出端点的占位示例，不是供应商原生 API。请替换为实现[聚合数据源协议](./docs/data-contract.md)的自有导出服务，并通过指定环境变量注入导出服务令牌；不要将供应商 API Key 当作导出服务令牌。`--check` 不发起网络请求或创建 SQLite 文件，也不验证端点连通性、鉴权或返回数据。各数据源必须对应互不重叠的用量与配额池，避免重复统计。
+
 | 配置项 | 默认值 | 说明 |
 | :--- | :--- | :--- |
 | `host`, `port` | `127.0.0.1`, `8900` | 监听地址与端口（可通过命令行 `--host` / `--port` 覆盖）。 |

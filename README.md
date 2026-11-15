@@ -66,6 +66,14 @@ python3 -m usage_dashboard --config config.json
 
 `--check` validates configuration syntax without fetching remote sources or creating a SQLite file. Relative paths in `config.json` resolve relative to the configuration file's directory.
 
+For three independent provider usage pools, see the [multi-provider example](./examples/config.multi-provider.example.json):
+
+```bash
+python3 -m usage_dashboard --config examples/config.multi-provider.example.json --check
+```
+
+The HTTPS URLs are illustrative summary exporters for OpenAI-compatible, Anthropic, and Google Cloud Vertex AI usage, not native provider APIs. Replace them with your own exporters implementing the [aggregate source contract](./docs/data-contract.md), and supply exporter tokens through the named environment variables. Do not use provider API keys as exporter tokens. Configuration validation does not verify endpoint reachability, authentication, or returned data. Sources must describe disjoint usage/quota pools to avoid double-counting.
+
 | Setting | Default | Meaning |
 | :--- | :--- | :--- |
 | `host`, `port` | `127.0.0.1`, `8900` | Listen address (`--host` / `--port` CLI flags override). |
