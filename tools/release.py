@@ -5,7 +5,7 @@ from pathlib import Path
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-FILES = ['README.md', 'README.zh-CN.md', 'LICENSE', 'CONTRIBUTING.md', 'CHANGELOG.md',
+FILES = ['README.md', 'README.zh-CN.md', 'LICENSE', 'CONTRIBUTING.md', 'CHANGELOG.md', 'SECURITY.md', '.editorconfig',
          'pyproject.toml', 'Dockerfile', 'compose.yaml', '.gitignore', '.dockerignore']
 PATTERNS = ['usage_dashboard/*.py', 'usage_dashboard/static/*.html',
             'usage_dashboard/static/*.css', 'usage_dashboard/static/*.js',
@@ -21,12 +21,12 @@ def main():
     for pattern in PATTERNS:
         files.update(ROOT.glob(pattern))
     payloads = {}
-    for path in sorted(files):
+    for path in sorted(files, key=lambda item: item.relative_to(ROOT).as_posix()):
         if not path.is_file() or path.is_symlink():
             raise ValueError('Missing file or symlink in publish list')
         if path.resolve().is_relative_to(ROOT) is False:
             raise ValueError('Publish path escapes project')
-        payloads[str(path.relative_to(ROOT))] = path.read_bytes()
+        payloads[path.relative_to(ROOT).as_posix()] = path.read_bytes()
     manifest = ''.join(hashlib.sha256(data).hexdigest() + '  ' + name + '\n' for name, data in payloads.items())
     payloads['MANIFEST.sha256'] = manifest.encode()
     args.output.parent.mkdir(parents=True, exist_ok=True)
