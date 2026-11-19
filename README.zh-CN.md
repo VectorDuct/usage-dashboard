@@ -6,6 +6,12 @@
 
 轻量级、只读的模型用量与配额可观测性看板。支持从自有服务端聚合模型调用与额度指标，在本地持久化每日快照，同时确保上游凭据与账户记录严格保留在服务端边界内。
 
+## 正式发布
+
+[v0.1.0 — 首个公开版本](https://github.com/VectorDuct/usage-dashboard/releases/tag/v0.1.0)。下载源码 ZIP 和 `SHA256SUMS`，解压后在项目目录运行 `python -m pip install .`（需要 Python 3.11+）。
+
+安装前请按 `SHA256SUMS` 校验下载包（Linux：`sha256sum -c SHA256SUMS`）。源码 ZIP 内另附逐文件校验清单 `MANIFEST.sha256`。
+
 ## 核心功能
 
 - **多类型数据源接入**：通过本地 JSON 文件、带 Bearer 鉴权的 HTTPS JSON 端点及实时汇总适配器，聚合多模型端点（OpenAI 兼容接口、DeepSeek、Anthropic、Google Cloud Vertex AI）的指标；同时支持内置合成演示数据。

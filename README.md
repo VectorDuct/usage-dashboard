@@ -6,6 +6,12 @@
 
 A lightweight, read-only observability dashboard for tracking model API usage, quota balances, and daily historical snapshots. Aggregate metrics from your own services while keeping credentials and upstream account records strictly on the server.
 
+## Releases
+
+[v0.1.0 — Initial Public Release](https://github.com/VectorDuct/usage-dashboard/releases/tag/v0.1.0). Download the source ZIP and `SHA256SUMS`; extract it and run `python -m pip install .` in the extracted directory (Python 3.11+).
+
+Verify downloaded assets against `SHA256SUMS` before installation (Linux: `sha256sum -c SHA256SUMS`). Source ZIPs also include a per-file `MANIFEST.sha256`.
+
 ## What It Does
 
 - **Multiple Configurable Sources**: Aggregates metrics across multi-model endpoints (OpenAI-compatible, DeepSeek, Anthropic, Google Cloud Vertex AI) through local JSON files, authenticated HTTPS JSON endpoints, and real-time summary adapters; also supports synthetic demo feeds.
